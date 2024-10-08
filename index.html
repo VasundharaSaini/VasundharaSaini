@@ -1,4 +1,696 @@
-{% extends "base1.html" %}
-{% block title %}
-Home
-{% endblock title %}
+
+{% load static %}
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>{% block title %}{% endblock title %}| NKRC Consortium</title>
+     <!-- Bootstrap CSS -->
+     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+     <!-- Custom CSS -->
+     <style>
+     
+         body {
+             background: #white;
+             font-family: Arial, sans-serif;
+             margin: 0;
+             padding: 0;
+         }
+         
+         .box a{
+            color: black;
+            }
+        
+        .box {
+            display: flex;
+            align-items: center;
+            margin:2px;
+            font-size: 25px;
+            font-weight: 100;
+            text-decoration: none;
+            text-indent:80px
+    
+             
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-left: 20px; /* Increased indent */
+            width: 150px;
+            height: auto;
+            transform: scale(1.156);
+        }
+        .links {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            
+        }
+        .box img {
+            height: 100%;
+            max-height: 100px; /* Adjust based on your design needs */
+        }
+        .links a {
+            display: block;
+            padding: 1px; /* Adjust for spacing between links */
+        }
+        .box2 {
+            margin-left: 1222px;
+            margin-top: 2px;
+        }
+        .header{
+            text-indent:150px; 
+            font-family: 'Times New Roman', Times, serif; 
+            font-weight:bold; 
+            
+        }
+         .navbar {
+            background-color:rgb(237, 234, 234);
+            overflow: hidden;
+         }
+         .navbar a:hover{
+            background-color: #f1f1f1;
+         }
+         .navbar a {
+            float: left;
+            display: block;
+            color: black;
+            padding: 1px 20px;
+            text-decoration: none;
+
+         }
+ 
+        
+         .navbar-brand {
+             font-size: 1.5rem;
+         }
+ 
+         .navbar-nav .nav-link {
+             color: #fff;
+             font-size: 1.2rem;
+             padding: 0.5rem 1rem;
+         }
+ 
+         .navbar-nav .nav-link:hover {
+             background-color: rgba(255, 255, 255, 0.1);
+             border-radius: 0.25rem;
+         }
+ 
+         /* Sidebar Styles */
+         .sidenav {
+    
+             top: 140px;
+             left: 0;
+             width: 175px;
+             height: calc(100vh - 140px);
+             background-color: rgb(237, 234, 234);
+             padding-top: 20px;
+             overflow-y: auto; /* Make the sidebar scrollable */
+         }
+ 
+         .sidenav a {
+             padding: 6px 8px;
+             text-decoration: none;
+             font-size: 16px;
+             color: black;
+             display: block;
+         }
+ 
+         .sidenav a:hover {
+             color: darkblue;
+         }
+ 
+         
+         .ml-auto {
+             margin-left: auto !important;
+         }
+ 
+         .submenu {
+             padding-left: 20px;
+         }
+ 
+         .submenu a {
+             padding: 6px 8px;
+             text-decoration: none;
+             font-size: 14px;
+             color: black;
+             display: block;
+         }
+ 
+         .submenu a:hover {
+             color: darkblue;
+         }
+ 
+         .submenu.show {
+             display: block;
+         }
+ 
+         /* Separator Line */
+         .separator {
+             border-top: 1px solid #ddd;
+             margin-top: 20px;
+             margin-left: 200px;
+         }
+         /* Main Content styles */
+         .main-content {
+         padding-left: 175px; /* Width of the sidebar */
+         margin-top: 50px; /* Space for navbar height */
+                  } 
+
+        /* Carousel container styles */
+         .carousel-container {
+         position: absolute;
+         top: calc(200px + 10px);  /* Add navbar and sidebar heights */
+         left: 177px;  /* Add a left margin for equal spacing */
+        
+         width: calc(60% - 20px);  /* Reduce width and subtract left margin */
+         }
+         .carousel-inner img {
+            width: 100%;
+            height: auto; /* Ensure images are responsive */
+            max-height: 400px; /* Set a maximum height to prevent overflow */
+        }
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+          width: 100%;  /* Set full width on smaller screens */
+          
+          left: 0;  /* Remove left margin on smaller screens */
+        }
+        footer {
+            background: #1A2130;
+            padding: 10px 0;
+            color: white;
+            width: 100%;
+          }
+          
+          .container {
+            text-align: center;
+            display: block;
+            justify-content: center;
+            align-items: center;
+          }
+          
+          .container p {  /* Remove any margin from all paragraphs within the container */
+            margin: 0;
+          }
+          
+          a {
+            color: white;
+            text-decoration: none;
+            padding: 0 5px;  /* Add padding between links and pipe */
+          }
+          
+          a:hover {
+            text-decoration: underline;
+          }
+          
+          .copyright {  /* Style the copyright paragraph */
+            margin-top: 5px;  /* Add margin-top to ensure it appears on the next line */
+            font-size: 0.8rem;  /* Optional: Adjust font size for copyright text */
+          }
+          .slider{
+            background-color: #1A2130;
+            padding: 100px;
+          }
+          table {
+            width: 65%;
+            margin-left: 250px;
+            border-collapse: collapse;
+            border: 2px solid #ffff;
+        }
+        .content{
+            text-align:center;
+            fony-Weight:50px;
+            background-color: #686D76;
+            color:white;
+            font-family: 'Times New Roman', Times, serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            padding: 5px;
+        }
+         td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border: 2px solid #ffff;
+
+        }
+         h6{
+            font-family:'Times New Roman', Times, serif;
+            font-weight:200px;
+            color: #686D76;
+         }
+         .p_block {
+            width: 100px;  /* Adjust the width as needed */
+            height: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+        }
+         .p_block:hover {
+            transform: scale(1.05); /* Slightly enlarges the image */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Adds a shadow effect */
+        }
+        .marquee-container {
+            width: 400px; /* Adjust the width as needed */
+            height: 200px; /* Adjust the height as needed */
+            overflow: hidden;
+            margin-left: calc(60% + 177px + 10px); /* Position to the right of the carousel */
+            top: calc(200px + 10px);  /* Align vertically with the carousel */
+            position: absolute;
+            border: 1px solid #000; /* Optional: for visual reference */
+            {% comment %} margin-left: 1090px;
+            position: relative; {% endcomment %}
+            border: 1px solid #000; /* Optional: for visual reference */
+        }
+
+        .marquee-content {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            animation: scroll-up 10s linear infinite;
+        }
+
+        @keyframes scroll-up {
+            0% {
+                transform: translateY(100%);
+            }
+            100% {
+                transform: translateY(-100%);
+            }
+        }
+        button{
+            padding: 2px;
+            margin: 2px;
+        }
+     </style>
+ </head>
+ <body>
+    <div class="web-message">
+        {% if messeage %}
+            {% for message in messages %}
+                {{message}}
+            {% endfor %}
+        {% endif %}
+    </div>
+
+     {% comment %} <h1 class="nkrc-heading">NATIONAL KNOWLEDGE RESOURCE CONSORTIUM</h1> {% endcomment %}
+     <div class="navbar">
+        <a href="https://www.india.gov.in/" target="_blank" class="brand">भारत सरकार | Government of India</a>
+     </div>
+
+     <div class=" box box1">
+        <a href="https://www.csir.res.in/" target="_blank" rel="noopener noreferrer">
+        <img class="logo" src="/static/nkrc9.png" alt="Logo" width="50" height="50"></a>
+        <a href="https://www.niscpr.res.in/" target="_blank" rel="noopener noreferrer">
+        <img style="position: absolute; margin-top:-50px; right:40px; transform: scale(0.95); width: 170px;" src="{% static 'Csir-NIScPR.png' %}" alt="Logo" width="50" height="50"></a>
+        {% comment %} <div class="links">
+        <a href="https://www.niscpr.res.in/" target="_blank" rel="noopener noreferrer" >सीएसआईआर-एनआईएससीपीआर</a>
+        </div> {% endcomment %}
+        {% comment %} <div class="links"> {% endcomment %}
+        <h2 class="header" style="text-indent:150px; font-family: 'Times New Roman', Times, serif; font-weight:bold; ">NATIONAL KNOWLEDGE RESOURCE CONSORTIUM</h2>
+        {% comment %} </div> {% endcomment %}
+    </div>
+        {% comment %} <div class="box2">
+            <img class="logo logo1" src="/static/Csir_NIScPR.png" alt="Logo" width="50" height="50">
+        </div>
+
+      {% endcomment %}
+     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+         <div class="container-fluid">
+             <a class="navbar-brand" href="#">NKRC Journal Details</a>
+             <div class="collapse navbar-collapse">
+                 <ul class="navbar-nav ml-auto">
+                     <li class="nav-item">
+                         <a class="nav-link active" aria-current="page" href="/home">Home</a>
+                     </li>
+                     <li class="nav-item">
+                         <a class="nav-link active" aria-current="page" href="/contact">Contact Us</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/about">About Us</a>
+                    </li>
+                    {%if user.is_authenticated %}
+                    <li class="nav-item" >
+                        <form method="post" action="{% url 'logout' %}">
+                            {% csrf_token %}
+                            <button type="submit" >Logout</button>
+                        </form>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href='{% url 'login'%}'>Login</a>
+                    </li>
+                    {% endif %}
+
+                 </ul>
+                 {% comment %} <form class="form-inline my-2 my-lg-0 ml-auto" action="{% url 'search' %}" method="GET">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search Institute/Publisher Name" aria-label="Search" name="query">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" a>Search</button>
+                </form> {% endcomment %}
+                <a href="{% url 'search' %}" class="btn btn-primary">Search</a>
+                {% comment %} <form class="form-inline my-2 my-lg-0 ml-auto" action="{% url 'search' %}" method="GET">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search Institute/Publisher Name" aria-label="Search" name="query" style="width: 300px; padding: 10px; font-size: 16px;">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form> {% endcomment %}
+                
+
+             </div>
+         </div>
+     </nav>
+ 
+     <!-- Sidebar -->
+     <div  class="sidenav">
+         <a href="#" class="dropdown-toggle" data-toggle="collapse" data-target="#ministryMenu">Data Fetching</a>
+         <div class="collapse" id="ministryMenu">
+             <div class="submenu">
+                 <a href="/csir">Ministries</a>
+                 
+             </div>
+         </div>
+         
+         <hr>
+         <a href="{% url 'select_entry_method' %}">Data Entry</a>
+        </hr>
+        {% comment %} <hr>
+         <a href="publisher/"class="link">Publisher's Details</a>
+        </hr> {% endcomment %}
+        <hr>
+        <a href="institutions/" lass="dropdown-toggle" data-toggle="collapse" data-target="#NodalMenu">Nodal Officer's Deatils</a>
+            <div class="collapse" id="NodalMenu">
+                <div class="submenu">
+                    <a href="/csir_nodal">CSIR</a>
+                    <a href="/dst_nodal">DST</a>
+                    <a href="/moes_nodal">MoES</a>
+                </div>
+            </div>
+            
+        </hr>
+        <hr></hr>
+        
+       
+    </div>
+     <!-- Main Content -->
+     <div class="carousel-container">
+         <!-- Slider -->
+         <div id="carouselExampleDark" class="carousel slide" data-ride="carousel">
+             <div class="carousel-inner">
+                 <div class="carousel-item active">
+                     <img src="/static/nkrc1.jpg" class="d-block w-100" alt="...">
+                     <div class="carousel-caption d-none d-md-block">
+                         {% comment %} <h5>First slide label</h5>
+                         <p>Some representative placeholder content for the first slide.</p> {% endcomment %}
+                     </div>
+                 </div>
+                 <div class="carousel-item">
+                     <img src="/static/nkrc2.jpg" class="d-block w-100" alt="...">
+                     <div class="carousel-caption d-none d-md-block">
+                         {% comment %} <h5>Second slide label</h5>
+                         <p>Some representative placeholder content for the second slide.</p> {% endcomment %}
+                     </div>
+                 </div>
+                 <div class="carousel-item">
+                     <img src="/static/nkrc3.jpg" class="d-block w-100" alt="...">
+                     <div class="carousel-caption d-none d-md-block">
+                         {% comment %} <h5>Third slide label</h5>
+                         <p>Some representative placeholder content for the third slide.</p> {% endcomment %}
+                     </div>
+                 </div>
+                  <div class="carousel-item">
+                    <img src="/static/nkrc4.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="/static/nkrc5.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                       
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="/static/nkrc6.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                       
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="/static/nkrc7.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="/static/nkrc8.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      
+                    </div>
+                </div>
+             </div>
+             <a class="carousel-control-prev" href="#carouselExampleDark" role="button" data-slide="prev">
+                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                 <span class="sr-only">Previous</span>
+             </a>
+             <a class="carousel-control-next" href="#carouselExampleDark" role="button" data-slide="next">
+                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                 <span class="sr-only">Next</span>
+             </a>
+         </div>
+     </div>
+     <div class="marquee-container">
+        <div class="marquee-content">
+            <p>This is line 1.</p>
+            <p>This is line 2.</p>
+            <p>This is line 3.</p>
+            <p>This is line 4.</p>
+            <p>This is line 5.</p>
+            <!-- Add more lines as needed -->
+        </div>
+    </div>
+     <div class=PublisherTable>
+        <h2 class=content>E-Resources</h2>
+        
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <h6>ACS</h6>
+                        <a href="https://pubs.acs.org/" target="_blank" rel="noopener noreferrer"><img src="/static/ACS .png" class="p_block" alt=".."></a>
+                    </td>
+                    <td>
+                        <h6>AIP</h6>
+                        <a href="https://pubs.aip.org/" target="_blank" rel="noopener noreferrer"><img src="/static/AIP Publishing.png" class="p_block" alt=".."></a>
+                    </td>
+                    <td>
+                        <h6>APS</h6>
+                        <a href="https://www.aps.org/publications" target="_blank" rel="noopener noreferrer"><img src="/static/APS.png" class="p_block" alt=".."></a>
+                    </td>
+                    <td>
+                        <h6>ASCE</h6>
+                        <a href="https://www.asce.org/publications-and-news" target="_blank" rel="noopener noreferrer"><img src="/static/ASCE.png" class="p_block" alt=".."></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h6>ASTM</h6>
+                        <a href="https://www.astm.org/products-services/standards-and-publications.html" target="_blank" rel="noopener noreferrer"><img src="/static/ASTM.png" class="p_block" alt=".."></a>
+                    </td>
+                    <td>
+                        <h6>CUP</h6>
+                        <a href="https://www.cambridge.org/core/publications/books" target="_blank" rel="noopener noreferrer"><img src="/static/CUP.png" class="p_block" alt=".."></a>
+                    </td>
+                    <td>
+                        <h6>Derwent Innovation</h6>
+                        <a href="https://support.clarivate.com/Patents/s/article/Derwent-Innovation-Publication-Number-PN-Formats?language=en_US" target="_blank" rel="noopener noreferrer"><img src="/static/Derwent innovation.png" class="p_block" alt=".."></a>
+                    </td>
+                    <td>
+                        <h6>EBSCO</h6>
+                        <a href="https://www.ebsco.com/" target="_blank" rel="noopener noreferrer"><img src="/static/EBSCO.png" class="p_block" alt=".."></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h6>Elsevier</h6>
+                        <a href="https://www.elsevier.com/en-in/products/sciencedirect" target="_blank" rel="noopener noreferrer"><img src="/static/Elsevier Science Direct.png" class="p_block" alt=".."></a>
+                    </td>
+                    <td>
+                        <h6>Grammarly</h6>
+                        <a href="https://www.grammarly.com/" target="_blank" rel="noopener noreferrer"><img src="/static/Grammarly.png" class="p_block" alt=".."></a>
+                    </td>
+                    <td>
+                        <h6>ICE</h6>
+                        <a href="https://www.ice.org.uk/engineering-resources/our-services/ice-publishing-journals" target="_blank" rel="noopener noreferrer"><img src="/static/ICE.png" class="p_block" alt=".."></a>
+                    </td>
+                    <td>
+                        <h6>IEEE</h6>
+                        <a href="https://www.ieee.org/" target="_blank" rel="noopener noreferrer"><img src="/static/IEEE.png" class="p_block" alt=".."></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h6>IOP</h6>
+                        <a href="https://iopscience.iop.org/" target="_blank" rel="noopener noreferrer"><img src="/static/IOP.png" class="p_block" alt=".."></a>
+                    </td>
+                    <td>
+                        <h6>iThenticate</h6>
+                        <a href="https://www.ithenticate.com/" target="_blank" rel="noopener noreferrer"><img src="/static/iThenticate.png" class="p_block" alt=".."></a>
+                    </td>
+                    <td>
+                        <h6>J Gate</h6>
+                        <a href="https://informaticsglobal.com/j-gate" target="_blank" rel="noopener noreferrer"><img src="/static/J Gate.png" class="p_block" alt=".."></a>
+                    </td>
+                    <td>
+                        <h6>OSA</h6>
+                        <a href="https://opg.optica.org/" target="_blank" rel="noopener noreferrer"><img src="/static/OSA.png" class="p_block" alt=".."></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h6>OUP</h6>
+                        <a href="https://global.oup.com/academic/?cc=in&lang=en&" target="_blank" rel="noopener noreferrer"><img src="/static/OUP.png" class="p_block" alt=".."></a>
+                    </td>
+                    <td>
+                        <h6>Questal</h6>
+                        <a href="https://www.questel.com/patent/patent-strategy-and-administration/defensive-publication/" target="_blank" rel="noopener noreferrer"><img src="/static/Questal.png" class="p_block" alt=".."></a>
+                    </td>
+                    <td>
+                        <h6>PUB</h6>
+                        <a href="https://pubs.rsc.org/" target="_blank" rel="noopener noreferrer"><img src="/static/RSC.png" class="p_block" alt=".."></a>
+                    </td>
+                    <td>
+                        <h6>SAGE</h6>
+                        <a href="https://us.sagepub.com/en-us/nam/home" target="_blank" rel="noopener noreferrer"><img src="/static/Sage.png" class="p_block" alt=".."></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h6>CAS</h6>
+                        <a href="https://www.cas.org/solutions/cas-scifinder-discovery-platform/cas-scifinder-n" target="_blank" rel="noopener noreferrer"><img src="/static/ScifinderN.png" class="p_block" alt=".."></a>
+                    </td>
+                    <td>
+                        <h6>Scopus</h6>
+                        <a href="https://www.scopus.com/home.uri" target="_blank" rel="noopener noreferrer"><img src="/static/Scopus.png" class="p_block" alt=".."></a>
+                    </td>
+                    <td>
+                        <h6>Springer</h6>
+                        <a href="https://www.springeropen.com/journals" target="_blank" rel="noopener noreferrer"><img src="/static/Springer Journals.png" class="p_block" alt=".."></a>
+                    </td>
+                    <td>
+                        <h6>Springer Nature</h6>
+                        <a href="https://www.springernature.com/gp" target="_blank" rel="noopener noreferrer"><img src="/static/Springer Nature.png" class="p_block" alt=".."></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h6>T&F</h6>
+                        <a href="https://www.tandfonline.com/" target="_blank" rel="noopener noreferrer"><img src="/static/T&F.png" class="p_block" alt=".."></a>
+                    </td>
+                    <td>
+                        <h6>Thieme</h6>
+                        <a href="https://www.thieme.in/" target="_blank" rel="noopener noreferrer"><img src="/static/Thieme.png" class="p_block" alt=".."></a>
+                    </td>
+                    <td>
+                        <h6>WOS</h6>
+                        <a href="https://wosjournal.com/" target="_blank" rel="noopener noreferrer"><img src="/static/Web of Science.png" class="p_block" alt=".."></a>
+                    </td>
+                    <td>
+                        <h6>Wiley</h6>
+                        <a href="https://www.wiley.com/en-in" target="_blank" rel="noopener noreferrer"><img src="/static/Wiley.png" class="p_block" alt=".."></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+            
+
+
+       
+    
+     <footer>
+        <div class="container">
+            <div class="foot">
+          <p style="color: white; font-weight: bold;"><a href="https://www.niscpr.res.in/" target="_blank" rel="noopener noreferrer">NIScPR</a> | <a href="https://www.csir.res.in/" target="_blank" rel="noopener noreferrer">CSIR</a> | <a href="https://dst.gov.in/" target="_blank" rel="noopener noreferrer">DST</a> | <a href="https://moes.gov.in/" target="_blank" rel="noopener noreferrer">MoES</a></p>
+            </div>
+          <p class="copyright">&copy; 2024 National Knowlege Resource Consortium. All rights reserved.</p>
+        </div>
+      </footer>
+      
+      
+          {% comment %} <footer>
+            <div class="footer-section">
+                <h3>Site Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>About</h3>
+                <p>Learn more about our mission and vision.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@example.com</p>
+                <p>Phone: +123-456-7890</p>
+            </div>
+            <div class="footer-section">
+                <h3>Coordinators</h3>
+                <p>John Doe</p>
+                <p>Jane Smith</p>
+            </div>
+        </footer>
+    {% endcomment %}
+           
+            {% comment %} <footer>
+                <div class="row">
+                    <div class="col">
+                    <h3>Links</h3>
+                    <p>NIScPR</p>
+                    <p>CSIR</p>
+                    <p>DST</p>
+                    <p>MoES</p>
+                    <p>Govt. of India</p>
+                    <ul>
+                        <li><a href="https://www.niscpr.res.in/">NIScPR</a></li>
+                        <li><a href="https://www.csir.res.in/">CSIR</a></li>
+                        <li><a href="https://dst.gov.in/">DST</a></li>
+                        <li><a href="https://moes.gov.in/">MoES</a></li>
+                        <li><a href="https://www.india.gov.in/">Govt. of India</a></li>
+                    </div>
+                   
+                    <div class="col">
+                        <h3>Contact Us</h3>
+                        <p>Location Map</p>
+                        <p>Mailing Address</p>
+                    </div>
+                    <div class="col">
+                        <h3>Coordinator</h3>
+                        <p>Mukesh A.Pund</p>
+                        <p>CSIR-NIScPR, New Delhi 110067</p>
+                        <p>Ph: 011-26960465</p>
+                        <p>Fax: 011-26519231</p>
+                        <p class="email-id">Mail: mukeshpund@niscpr.res.in</p>
+                        <p class="email-id">nkrc@niscpr.res.in</p>
+
+                    </div>    
+                </div>   
+            </footer> {% endcomment %}
+        
+     <!-- Bootstrap JS and dependencies -->
+     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ 
+     <script>
+         // Enable Bootstrap dropdown submenu
+         $(document).ready(function(){
+             $('.dropdown-submenu a.dropdown-toggle').on("click", function(e){
+                 $(this).next('ul').toggle();
+                 e.stopPropagation();
+                 e.preventDefault();
+             });
+         });
+     </script>
+ </body>
+ </html>
